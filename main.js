@@ -17,27 +17,30 @@
 const display = document.querySelector(".display");
 const main = document.querySelector("main");
 const body = document.body
+const nav = document.querySelector("nav")
 const command = document.querySelector(".command");
 const startBtn = document.querySelector("#start-btn");
-const actualCard = document.querySelector(".card-actual");
+const actualCard = document.querySelector(".card-left");
 const actualImage = document.querySelector("#img-actual");
+
 
 
 //Event listeners
 startBtn.addEventListener("click", startGame);
 
 
-//Functions
+// Functions
 function startGame(){
-    //Display buttons
+    //Display and text changes.
     main.style.display = "flex";
     body.style.backgroundColor = "darkgreen"
-    //Create the deck
+    nav.innerHTML= "Good luck!"
 
-    //Display the points (maybe a chart?)
-
-    //Show the first card
-    setTimeout(function (){actualImage.src="assets/images/images.png"},2000);
+    setTimeout(function (){
+        actualImage.style.visibility="hidden";
+        actualCard.innerHTML=randomNumber;
+    }
+        ,2000);
 }
 
 
@@ -45,9 +48,6 @@ function startGame(){
 
 //DECK FUNCTIONALITY.
 
-const generateRandomDeck = () => {
-    //Generate the deck
-    //Shuffle the deck
-    //Return it
-}
 
+const newArr = new Array(52)
+const randomNumber = Math.floor(Math.random()*newArr.length)

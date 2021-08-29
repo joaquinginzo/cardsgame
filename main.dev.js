@@ -16,29 +16,27 @@
 var display = document.querySelector(".display");
 var main = document.querySelector("main");
 var body = document.body;
+var nav = document.querySelector("nav");
 var command = document.querySelector(".command");
 var startBtn = document.querySelector("#start-btn");
-var actualCard = document.querySelector(".card-actual");
+var actualCard = document.querySelector(".card-left");
 var actualImage = document.querySelector("#img-actual"); //Event listeners
 
-startBtn.addEventListener("click", startGame); //Functions
+startBtn.addEventListener("click", startGame); // Functions
 
 function startGame() {
-  //Display buttons
+  //Display and text changes.
   main.style.display = "flex";
-  body.style.backgroundColor = "darkgreen"; //Create the deck
-  //Display the points (maybe a chart?)
-  //Show the first card
-
+  body.style.backgroundColor = "darkgreen";
+  nav.innerHTML = "Good luck!";
   setTimeout(function () {
-    actualImage.src = "assets/images/images.png";
+    actualImage.style.visibility = "hidden";
+    actualCard.innerHTML = randomNumber;
   }, 2000);
 }
 /*------------------------------------------------------------------------------------------*/
 //DECK FUNCTIONALITY.
 
 
-var generateRandomDeck = function generateRandomDeck() {//Generate the deck
-  //Shuffle the deck
-  //Return it
-};
+var newArr = new Array(52);
+var randomNumber = Math.floor(Math.random() * newArr.length);

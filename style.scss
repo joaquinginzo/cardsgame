@@ -24,7 +24,6 @@ main{
     justify-content: space-around;
     align-items: center;
     .card{
-        margin-top: 100px;
         height: 60vh;
         width: 20vw;
         background-color: white;
@@ -57,4 +56,18 @@ main{
         color: #111;
         background: #39ff14;
         box-shadow: 0 0 50px #39ff14;
+}
+
+.card-panel{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-left{
+    display: flex;
+    font-size: 68px;
+    justify-content: center;
+    align-items: center;
+
 }
