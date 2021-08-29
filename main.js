@@ -15,6 +15,8 @@
 
 // QUERIES
 const display = document.querySelector(".display");
+const main = document.querySelector("main");
+const body = document.body
 const command = document.querySelector(".command");
 const startBtn = document.querySelector("#start-btn");
 const actualCard = document.querySelector(".card-actual");
@@ -28,10 +30,14 @@ startBtn.addEventListener("click", startGame);
 //Functions
 function startGame(){
     //Display buttons
+    main.style.display = "flex";
+    body.style.backgroundColor = "darkgreen"
     //Create the deck
+
     //Display the points (maybe a chart?)
+
     //Show the first card
-    setTimeout(function (){actualImage.src="assets/images/images.png"},500);
+    setTimeout(function (){actualImage.src="assets/images/images.png"},2000);
 }
 
 

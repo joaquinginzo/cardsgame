@@ -14,6 +14,8 @@
 // It will create the array, place the numbers on the divs, create the buttons, display the score and prepare all the functionality for the game.
 // QUERIES
 var display = document.querySelector(".display");
+var main = document.querySelector("main");
+var body = document.body;
 var command = document.querySelector(".command");
 var startBtn = document.querySelector("#start-btn");
 var actualCard = document.querySelector(".card-actual");
@@ -23,12 +25,14 @@ startBtn.addEventListener("click", startGame); //Functions
 
 function startGame() {
   //Display buttons
-  //Create the deck
+  main.style.display = "flex";
+  body.style.backgroundColor = "darkgreen"; //Create the deck
   //Display the points (maybe a chart?)
   //Show the first card
+
   setTimeout(function () {
     actualImage.src = "assets/images/images.png";
-  }, 500);
+  }, 2000);
 }
 /*------------------------------------------------------------------------------------------*/
 //DECK FUNCTIONALITY.

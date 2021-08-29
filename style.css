@@ -7,7 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: darkgreen;
+  background-color: black;
   padding: 0px;
 }
 
@@ -17,10 +17,11 @@ nav {
   font-size: 40px;
   margin: 30px;
   color: white;
+  padding-top: 50px;
 }
 
 main {
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: center;
 }
@@ -53,4 +54,10 @@ main .card img {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 10px 5px 5px black;
+}
+
+#start-btn:hover {
+  color: #111;
+  background: #39ff14;
+  box-shadow: 0 0 50px #39ff14;
 }
