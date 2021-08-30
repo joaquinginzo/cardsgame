@@ -13,40 +13,40 @@
 // create a start function
 // It will create the array, place the numbers on the divs, create the buttons, display the score and prepare all the functionality for the game.
 // QUERIES
-var display = document.querySelector(".display");
-var main = document.querySelector("main");
-var body = document.body;
-var nav = document.querySelector("nav");
-var command = document.querySelector(".command");
-var startBtn = document.querySelector("#start-btn");
-var actualCard = document.querySelector(".card-left");
-var actualImage = document.querySelector("#img-actual");
-var imgToReveal = document.querySelector("#img-toreveal");
-var userBtns = document.querySelector(".btn-panel-btn");
-var secondCard = document.querySelector(".card-right"); //Event listeners
+var board = document.querySelector(".board");
+var game = document.querySelector(".game");
+var welcomeText = document.querySelector(".welcomeText");
+var startBtnContainer = document.querySelector(".start--btn-container");
+var startBtn = document.querySelector(".start--btn-btn");
+var leftCard = document.querySelector(".board--left");
+var leftCardBackgroundImg = document.querySelector(".board--left-img");
+var rightCardBackgroundImg = document.querySelector(".board--right-img");
+var userBtns = document.querySelector(".btn--panel-btn");
+var rightCard = document.querySelector(".board--right"); //Event listeners
 
 startBtn.addEventListener("click", startGame);
 userBtns.addEventListener("click", revealCard); // Functions
 
 function startGame() {
   //Display and text changes.
-  main.style.display = "flex";
-  body.style.backgroundColor = "darkgreen";
-  nav.innerHTML = "Good luck!";
+  board.style.display = "flex";
+  game.style.backgroundColor = "darkgreen";
+  welcomeText.innerHTML = "Good luck!";
   setTimeout(function () {
-    actualImage.display = "none";
-    actualCard.innerHTML = randomNumber;
+    leftCardBackgroundImg.display = "none";
+    leftCard.innerHTML = randomNumber;
   }, 2000);
 }
 
 function revealCard() {
-  imgToReveal.style.visibility = "hidden";
-  secondCard.innerHTML = randomNumber2;
+  rightCardBackgroundImg.style.visibility = "hidden";
+  rightCard.innerHTML = randomNumber2;
   setTimeout(function () {
-    actualCard.display = "block";
+    leftCardBackgroundImg.display = "block";
     actualImage.style.visibility = "visible";
     actualCard.innerHTML = "";
   }, 1000);
+  setTimeout(function () {});
 }
 /*------------------------------------------------------------------------------------------*/
 //DECK FUNCTIONALITY.

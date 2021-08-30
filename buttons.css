@@ -1,0 +1,19 @@
+.start--btn-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  color: white;
+  border: 2px black solid;
+  margin-top: 60px;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px black;
+}
+
+.start--btn-btn:hover {
+  color: #111;
+  background: #39ff14;
+  box-shadow: 0 0 50px #39ff14;
+}

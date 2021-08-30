@@ -1,15 +1,19 @@
+@import "./buttons.scss";
+@import "./variables.scss";
+
+
 *{
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+.game{
     width: 100vw;
     height: 100vh;
     background-color:black;
     padding: 0px ;
-    .welcome{
+    .welcomeText{
         display: flex;
         justify-content: center;
         font-size: 40px;
@@ -58,30 +62,10 @@ body{
         }
     
     }
-    
+    .start--btn-container{
+        display: flex;
+        justify-content: center;
+    }
 }
 
-.command{
-    display: flex;
-    justify-content: center;
-}
-#start-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: red;
-    color: white;
-    border: 2px black solid;
-    margin-top: 60px;
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px black;
-}
-
-#start-btn:hover{
-        color: #111;
-        background: #39ff14;
-        box-shadow: 0 0 50px #39ff14;
-}
 

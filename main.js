@@ -14,17 +14,16 @@
 // It will create the array, place the numbers on the divs, create the buttons, display the score and prepare all the functionality for the game.
 
 // QUERIES
-const display = document.querySelector(".display");
-const main = document.querySelector("main");
-const body = document.body
-const nav = document.querySelector("nav")
-const command = document.querySelector(".command");
-const startBtn = document.querySelector("#start-btn");
-const actualCard = document.querySelector(".card-left");
-const actualImage = document.querySelector("#img-actual");
-const imgToReveal = document.querySelector("#img-toreveal");
-const userBtns = document.querySelector(".btn-panel-btn");
-const secondCard= document.querySelector(".card-right");
+const board = document.querySelector(".board");
+const game = document.querySelector(".game")
+const welcomeText = document.querySelector(".welcomeText")
+const startBtnContainer = document.querySelector(".start--btn-container");
+const startBtn = document.querySelector(".start--btn-btn");
+const leftCard = document.querySelector(".board--left");
+const leftCardBackgroundImg = document.querySelector(".board--left-img");
+const rightCardBackgroundImg = document.querySelector(".board--right-img");
+const userBtns = document.querySelector(".btn--panel-btn");
+const rightCard= document.querySelector(".board--right");
 
 
 
@@ -36,23 +35,26 @@ userBtns.addEventListener("click", revealCard);
 // Functions
 function startGame(){
     //Display and text changes.
-    main.style.display = "flex";
-    body.style.backgroundColor = "darkgreen"
-    nav.innerHTML= "Good luck!"
+    board.style.display = "flex";
+    game.style.backgroundColor = "darkgreen"
+    welcomeText.innerHTML= "Good luck!"
     setTimeout(function (){
-        actualImage.display="none";
-        actualCard.innerHTML=randomNumber;
+        leftCardBackgroundImg.display="none";
+        leftCard.innerHTML=randomNumber;
     },2000);
 }
 
 function revealCard(){
-    imgToReveal.style.visibility="hidden";
-    secondCard.innerHTML=randomNumber2;
+    rightCardBackgroundImg.style.visibility="hidden";
+    rightCard.innerHTML=randomNumber2;
     setTimeout(function(){
-        actualCard.display="block"
+        leftCardBackgroundImg.display="block"
         actualImage.style.visibility="visible";
         actualCard.innerHTML="" 
     },1000)
+    setTimeout(function(){
+        
+    })
 }
 
 

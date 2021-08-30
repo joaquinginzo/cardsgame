@@ -7,13 +7,13 @@
     <title>Higher or Lower</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="welcome">
+<body class="game">
+    <nav class="welcomeText">
         Feeling lucky? Higher or lower?
     </nav>
     <main class="board">
         <div class="board__item board--left">
-            <img id="img-actual" src="assets/images/poker-back3.png" alt="">
+            <img class="board--left-img" src="assets/images/poker-back3.png" alt="">
         </div>
         <div class="board__item board--center">
             <div class="panel score--panel">
@@ -26,12 +26,12 @@
             </div>
         </div>
         <div class="board__item board--right">
-            <img id="img-toreveal" src="assets/images/poker-back3.png" alt="">
+            <img class="board--right-img" src="assets/images/poker-back3.png" alt="">
         </div>
     </main>
 
-    <div class="command">
-        <button type="button" id="start-btn">Get started!</button>
+    <div class="start--btn-container">
+        <button type="button" class="start--btn-btn">Get started!</button>
 
     </div>
 <script src="main.js"></script>
