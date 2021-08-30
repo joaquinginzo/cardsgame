@@ -20,9 +20,13 @@ var nav = document.querySelector("nav");
 var command = document.querySelector(".command");
 var startBtn = document.querySelector("#start-btn");
 var actualCard = document.querySelector(".card-left");
-var actualImage = document.querySelector("#img-actual"); //Event listeners
+var actualImage = document.querySelector("#img-actual");
+var imgToReveal = document.querySelector("#img-toreveal");
+var userBtns = document.querySelector(".btn-panel-btn");
+var secondCard = document.querySelector(".card-right"); //Event listeners
 
-startBtn.addEventListener("click", startGame); // Functions
+startBtn.addEventListener("click", startGame);
+userBtns.addEventListener("click", revealCard); // Functions
 
 function startGame() {
   //Display and text changes.
@@ -30,9 +34,19 @@ function startGame() {
   body.style.backgroundColor = "darkgreen";
   nav.innerHTML = "Good luck!";
   setTimeout(function () {
-    actualImage.style.visibility = "hidden";
+    actualImage.display = "none";
     actualCard.innerHTML = randomNumber;
   }, 2000);
+}
+
+function revealCard() {
+  imgToReveal.style.visibility = "hidden";
+  secondCard.innerHTML = randomNumber2;
+  setTimeout(function () {
+    actualCard.display = "block";
+    actualImage.style.visibility = "visible";
+    actualCard.innerHTML = "";
+  }, 1000);
 }
 /*------------------------------------------------------------------------------------------*/
 //DECK FUNCTIONALITY.
@@ -40,3 +54,7 @@ function startGame() {
 
 var newArr = new Array(52);
 var randomNumber = Math.floor(Math.random() * newArr.length);
+var randomNumber2 = Math.floor(Math.random() * newArr.length); //----------------- DECK FUNCTIONALITY-----------------
+
+var suits = ["spades"];
+var ranks = [];

@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav class="welcome">
         Feeling lucky? Higher or lower?
     </nav>
-    <main class="display">
-        <div class="card card-left"><img id="img-actual" src="assets/images/poker-back3.png" alt=""></div>
-        <div class="card card-panel">
-            <div class="score-panel">
-
+    <main class="board">
+        <div class="board__item board--left">
+            <img id="img-actual" src="assets/images/poker-back3.png" alt="">
+        </div>
+        <div class="board__item board--center">
+            <div class="panel score--panel">
+                <h1>Your score:</h1>
+                <h1>0</h1>
             </div>
-            <div class="btn-panel">
-                <button>Higher</button>
-                <button>Lower</button>
+            <div class="panel btn--panel">
+                <button class="btn--panel-btn">Higher</button>
+                <button class="btn--panel-btn">Lower</button>
             </div>
         </div>
-
-        <div class="card card-right"><img id="img-toreveal" src="assets/images/poker-back3.png" alt=""></div>
-
+        <div class="board__item board--right">
+            <img id="img-toreveal" src="assets/images/poker-back3.png" alt="">
+        </div>
     </main>
+
     <div class="command">
         <button type="button" id="start-btn">Get started!</button>
 

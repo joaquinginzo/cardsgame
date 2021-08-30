@@ -22,11 +22,15 @@ const command = document.querySelector(".command");
 const startBtn = document.querySelector("#start-btn");
 const actualCard = document.querySelector(".card-left");
 const actualImage = document.querySelector("#img-actual");
+const imgToReveal = document.querySelector("#img-toreveal");
+const userBtns = document.querySelector(".btn-panel-btn");
+const secondCard= document.querySelector(".card-right");
 
 
 
 //Event listeners
 startBtn.addEventListener("click", startGame);
+userBtns.addEventListener("click", revealCard);
 
 
 // Functions
@@ -35,12 +39,20 @@ function startGame(){
     main.style.display = "flex";
     body.style.backgroundColor = "darkgreen"
     nav.innerHTML= "Good luck!"
-
     setTimeout(function (){
-        actualImage.style.visibility="hidden";
+        actualImage.display="none";
         actualCard.innerHTML=randomNumber;
-    }
-        ,2000);
+    },2000);
+}
+
+function revealCard(){
+    imgToReveal.style.visibility="hidden";
+    secondCard.innerHTML=randomNumber2;
+    setTimeout(function(){
+        actualCard.display="block"
+        actualImage.style.visibility="visible";
+        actualCard.innerHTML="" 
+    },1000)
 }
 
 
@@ -51,3 +63,11 @@ function startGame(){
 
 const newArr = new Array(52)
 const randomNumber = Math.floor(Math.random()*newArr.length)
+const randomNumber2 = Math.floor(Math.random()*newArr.length)
+
+
+
+//----------------- DECK FUNCTIONALITY-----------------
+
+const suits = ["spades"]
+const ranks = []
