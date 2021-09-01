@@ -22,7 +22,7 @@
         padding-top: 50px
     }
     .board{
-        display: none;
+        display: flex;
         justify-content: space-around;
         align-items: center;
         &__item{
@@ -37,7 +37,8 @@
         }
         .board--left, .board--right{
             display: flex;
-            font-size: 68px;
+            flex-direction: column;
+            font-size: 60px;
             justify-content: center;
             align-items: center;
         }
@@ -50,11 +51,14 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    margin-top: 40px;
+                    padding-top: 20px;
                 }
             }
             .btn--panel{
                 display: flex;
                 flex-direction: column;
+                margin-top: 150px;
                 .btn--panel-btn{
                     height: 80px;
                 }

@@ -39,7 +39,7 @@
   padding-top: 50px;
 }
 .game .board {
-  display: none;
+  display: flex;
   justify-content: space-around;
   align-items: center;
 }
@@ -55,7 +55,8 @@
 }
 .game .board .board--left, .game .board .board--right {
   display: flex;
-  font-size: 68px;
+  flex-direction: column;
+  font-size: 60px;
   justify-content: center;
   align-items: center;
 }
@@ -68,10 +69,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
+  padding-top: 20px;
 }
 .game .board .board--center .btn--panel {
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
 }
 .game .board .board--center .btn--panel .btn--panel-btn {
   height: 80px;
