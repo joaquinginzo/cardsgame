@@ -1,53 +1,104 @@
-// CREATE A CARDS GAME.
-// CALLED GREATER OR LOWER THAN
-// CREATES AN ARRAY OF 40 CARDS IN A RANDOM ORDER ( 40 variables with a "value" to compare with the other cards)
-// FIRST VERSION SHOULD ALLOW TWO PLAYERS (create a computer players as well, that chooses bigger if the card is lower than 5 and viceversa.)
-// THE FIRST CARD SHOULD BE VISIBLE
-// THE FIRST PLAYER IS CHOSEN RANDOMLY
-// HE HAS TO DECIDE IF THE NEXT CARD IN THE ARRAY IS GOING TO BE A BIGGER OR A SMALLER CARD ( display the card and buttons to choose the option)
-// IF HE IS RIGHT HE WINS A POINT, IF HE IS WRONG HE DOESNT AND THE OTHER PLAYER GOES TO STEP 7
-// THE PLAYER WITH MORE POINTS WHEN THE 40 CARDS ARE GONNE IS THE WINNER.
-
-// Steps 
-
-// create a start function
-// It will create the array, place the numbers on the divs, create the buttons, display the score and prepare all the functionality for the game.
-
 // QUERIES
-const display = document.querySelector(".display");
-const main = document.querySelector("main");
-const body = document.body
-const command = document.querySelector(".command");
-const startBtn = document.querySelector("#start-btn");
-const actualCard = document.querySelector(".card-actual");
-const actualImage = document.querySelector("#img-actual");
+const board = document.querySelector(".board");
+const game = document.querySelector(".game");
+const welcomeText = document.querySelector(".welcomeText");
+const startBtnContainer = document.querySelector(".start--btn-container");
+const startBtn = document.querySelector(".start--btn-btn");
+const leftCard = document.querySelector(".board--left");
+const leftCardBackgroundImg = document.querySelector(".board--left-img");
+const higherBtn = document.querySelector(".higher--btn");
+const lowerBtn = document.querySelector(".lower--btn");
+let score = document.querySelector(".score--number");
 
+const maxDeckPosition = 52;
+let deckPosition = 1;
 
-//Event listeners
+const startGame = () => {
+    game.style.backgroundColor = "darkgreen";
+    welcomeText.innerHTML= "Good luck!";
+    leftCardBackgroundImg.display= "none";
+    leftCard.innerHTML = Object.values(myShuffledDeck[0]);
+}
+
+// const assignColor = (card) => {
+//     card.suit === "♣" || card.suit === "♠" ? card.color = "red" : card.color = "black";
+// }
+const createDeck = () => {
+    newDeck = []
+    const suits = ["♠", "♣", "♥", "♥"];
+    const ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+    for (let suit in suits) {
+        for (let rank in ranks){
+            newDeck.push({"rank":ranks[rank],"suits":suits[suit]})
+        }  
+    }
+    // newDeck.map(card => {
+    //     assignColor(...card)  
+    // }); 
+    return newDeck
+}
+
+const ranksValues = {
+    "2":2,
+    "3":3,
+    "4":4,
+    "5":5,
+    "6":6,
+    "7":7,
+    "8":8,
+    "9":9,
+    "10":10,
+    "J":11,
+    "Q":12,
+    "K":13,
+    "A":14
+}
+
+const colorValues = {
+    "♠":"black",
+    "♣":"black",
+    "♥":"red",
+    "♥":"red"
+}
+
+const shuffleDeck = (newDeck) => {
+    for (let i = newDeck.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i);
+        let temp = newDeck[i];
+        newDeck[i] = newDeck[j];
+        newDeck[j] = temp;
+    }
+    return newDeck
+}
+
+const isHigher = () => {
+    let secondCard = myShuffledDeck[deckPosition];
+    if (ranksValues[secondCard.rank] > ranksValues[firstCard.rank]) {
+        score.innerHTML ++;
+    } else {
+        score.innerHTML --;
+    }
+    leftCard.innerHTML = Object.values(secondCard);
+        firstCard = secondCard;
+        deckPosition++;
+}
+
+const isLower = () => {
+    let secondCard = myShuffledDeck[deckPosition];
+    if (ranksValues[secondCard.rank] < ranksValues[firstCard.rank]) {
+        score.innerHTML ++;
+    } else {
+        score.innerHTML --;
+    }
+    leftCard.innerHTML = Object.values(secondCard);
+        firstCard = secondCard;
+        deckPosition++;
+
+}
+
 startBtn.addEventListener("click", startGame);
-
-
-//Functions
-function startGame(){
-    //Display buttons
-    main.style.display = "flex";
-    body.style.backgroundColor = "darkgreen"
-    //Create the deck
-
-    //Display the points (maybe a chart?)
-
-    //Show the first card
-    setTimeout(function (){actualImage.src="assets/images/images.png"},2000);
-}
-
-
-/*------------------------------------------------------------------------------------------*/
-
-//DECK FUNCTIONALITY.
-
-const generateRandomDeck = () => {
-    //Generate the deck
-    //Shuffle the deck
-    //Return it
-}
+higherBtn.addEventListener("click", isHigher);
+lowerBtn.addEventListener("click",isLower)
+let myShuffledDeck = shuffleDeck(createDeck())
+let firstCard = Object.values(myShuffledDeck[0])
 

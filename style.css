@@ -1,48 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  padding: 0px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  margin: 30px;
-  color: white;
-  padding-top: 50px;
-}
-
-main {
-  display: none;
-  justify-content: space-around;
-  align-items: center;
-}
-main .card {
-  margin-top: 100px;
-  height: 60vh;
-  width: 20vw;
-  background-color: white;
-  border-radius: 20px;
-}
-main .card img {
-  height: 60vh;
-  width: 20vw;
-}
-
-.command {
-  display: flex;
-  justify-content: center;
-}
-
-#start-btn {
+.start--btn-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,8 +12,75 @@ main .card img {
   box-shadow: 10px 5px 5px black;
 }
 
-#start-btn:hover {
+.start--btn-btn:hover {
   color: #111;
   background: #39ff14;
   box-shadow: 0 0 50px #39ff14;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.game {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  padding: 0px;
+}
+.game .welcomeText {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  margin: 30px;
+  color: white;
+  padding-top: 50px;
+}
+.game .board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.game .board__item {
+  height: 60vh;
+  width: 20vw;
+  background-color: white;
+  border-radius: 20px;
+}
+.game .board__item img {
+  height: 60vh;
+  width: 20vw;
+}
+.game .board .board--left, .game .board .board--right {
+  display: flex;
+  flex-direction: column;
+  font-size: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.game .board .board--center .score--panel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.game .board .board--center .score--panel h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.game .board .board--center .btn--panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 220px;
+}
+.game .board .board--center .btn--panel .btn--panel-btn {
+  height: 80px;
+}
+.game .start--btn-container {
+  display: flex;
+  justify-content: center;
 }

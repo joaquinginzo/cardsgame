@@ -1,44 +1,114 @@
 "use strict";
 
-// CREATE A CARDS GAME.
-// CALLED GREATER OR LOWER THAN
-// CREATES AN ARRAY OF 40 CARDS IN A RANDOM ORDER ( 40 variables with a "value" to compare with the other cards)
-// FIRST VERSION SHOULD ALLOW TWO PLAYERS (create a computer players as well, that chooses bigger if the card is lower than 5 and viceversa.)
-// THE FIRST CARD SHOULD BE VISIBLE
-// THE FIRST PLAYER IS CHOSEN RANDOMLY
-// HE HAS TO DECIDE IF THE NEXT CARD IN THE ARRAY IS GOING TO BE A BIGGER OR A SMALLER CARD ( display the card and buttons to choose the option)
-// IF HE IS RIGHT HE WINS A POINT, IF HE IS WRONG HE DOESNT AND THE OTHER PLAYER GOES TO STEP 7
-// THE PLAYER WITH MORE POINTS WHEN THE 40 CARDS ARE GONNE IS THE WINNER.
-// Steps 
-// create a start function
-// It will create the array, place the numbers on the divs, create the buttons, display the score and prepare all the functionality for the game.
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // QUERIES
-var display = document.querySelector(".display");
-var main = document.querySelector("main");
-var body = document.body;
-var command = document.querySelector(".command");
-var startBtn = document.querySelector("#start-btn");
-var actualCard = document.querySelector(".card-actual");
-var actualImage = document.querySelector("#img-actual"); //Event listeners
+var board = document.querySelector(".board");
+var game = document.querySelector(".game");
+var welcomeText = document.querySelector(".welcomeText");
+var startBtnContainer = document.querySelector(".start--btn-container");
+var startBtn = document.querySelector(".start--btn-btn");
+var leftCard = document.querySelector(".board--left");
+var leftCardBackgroundImg = document.querySelector(".board--left-img");
+var higherBtn = document.querySelector(".higher--btn");
+var lowerBtn = document.querySelector(".lower--btn");
+var score = document.querySelector(".score--number");
+var maxDeckPosition = 52;
+var deckPosition = 1;
 
-startBtn.addEventListener("click", startGame); //Functions
-
-function startGame() {
-  //Display buttons
-  main.style.display = "flex";
-  body.style.backgroundColor = "darkgreen"; //Create the deck
-  //Display the points (maybe a chart?)
-  //Show the first card
-
-  setTimeout(function () {
-    actualImage.src = "assets/images/images.png";
-  }, 2000);
-}
-/*------------------------------------------------------------------------------------------*/
-//DECK FUNCTIONALITY.
+var startGame = function startGame() {
+  game.style.backgroundColor = "darkgreen";
+  welcomeText.innerHTML = "Good luck!";
+  leftCardBackgroundImg.display = "none";
+  leftCard.innerHTML = Object.values(myShuffledDeck[0]);
+}; // const assignColor = (card) => {
+//     card.suit === "♣" || card.suit === "♠" ? card.color = "red" : card.color = "black";
+// }
 
 
-var generateRandomDeck = function generateRandomDeck() {//Generate the deck
-  //Shuffle the deck
-  //Return it
+var createDeck = function createDeck() {
+  newDeck = [];
+  var suits = ["♠", "♣", "♥", "♥"];
+  var ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+  for (var suit in suits) {
+    for (var rank in ranks) {
+      newDeck.push({
+        "rank": ranks[rank],
+        "suits": suits[suit]
+      });
+    }
+  } // newDeck.map(card => {
+  //     assignColor(...card)  
+  // }); 
+
+
+  return newDeck;
 };
+
+var ranksValues = {
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "J": 11,
+  "Q": 12,
+  "K": 13,
+  "A": 14
+};
+
+var colorValues = _defineProperty({
+  "♠": "black",
+  "♣": "black",
+  "♥": "red"
+}, "\u2665", "red");
+
+var shuffleDeck = function shuffleDeck(newDeck) {
+  for (var i = newDeck.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * i);
+    var temp = newDeck[i];
+    newDeck[i] = newDeck[j];
+    newDeck[j] = temp;
+  }
+
+  return newDeck;
+};
+
+var isHigher = function isHigher() {
+  var secondCard = myShuffledDeck[deckPosition];
+
+  if (ranksValues[secondCard.rank] > ranksValues[firstCard.rank]) {
+    score.innerHTML++;
+  } else {
+    score.innerHTML--;
+  }
+
+  leftCard.innerHTML = Object.values(secondCard);
+  firstCard = secondCard;
+  deckPosition++;
+};
+
+var isLower = function isLower() {
+  var secondCard = myShuffledDeck[deckPosition];
+
+  if (ranksValues[secondCard.rank] < ranksValues[firstCard.rank]) {
+    score.innerHTML++;
+  } else {
+    score.innerHTML--;
+  }
+
+  leftCard.innerHTML = Object.values(secondCard);
+  firstCard = secondCard;
+  deckPosition++;
+};
+
+startBtn.addEventListener("click", startGame);
+higherBtn.addEventListener("click", isHigher);
+lowerBtn.addEventListener("click", isLower);
+var myShuffledDeck = shuffleDeck(createDeck());
+var firstCard = Object.values(myShuffledDeck[0]);

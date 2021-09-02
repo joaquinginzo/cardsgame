@@ -1,60 +1,75 @@
+@import "./buttons.scss";
+@import "./variables.scss";
+
+
 *{
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+.game{
     width: 100vw;
     height: 100vh;
     background-color:black;
     padding: 0px ;
-}
-nav{
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    margin: 30px;
-    color: white;
-    padding-top: 50px
-}
-
-main{
-    display: none;
-    justify-content: space-around;
-    align-items: center;
-    .card{
-        margin-top: 100px;
-        height: 60vh;
-        width: 20vw;
-        background-color: white;
-        border-radius: 20px;
-        img{
+    .welcomeText{
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        margin: 30px;
+        color: white;
+        padding-top: 50px
+    }
+    .board{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &__item{
             height: 60vh;
             width: 20vw;
+            background-color: white;
+            border-radius: 20px;
+            img{
+                height: 60vh;
+                width: 20vw;
+            }
         }
+        .board--left, .board--right{
+            display: flex;
+            flex-direction: column;
+            font-size: 60px;
+            justify-content: center;
+            align-items: center;
+        }
+        .board--center{
+            .score--panel{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 60px;
+                h1{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 40px;
+                    padding-top: 20px;
+                }
+            }
+            .btn--panel{
+                display: flex;
+                flex-direction: column;
+                margin-top: 220px;
+                .btn--panel-btn{
+                    height: 80px;
+                }
+            }
+        }
+    
+    }
+    .start--btn-container{
+        display: flex;
+        justify-content: center;
     }
 }
-.command{
-    display: flex;
-    justify-content: center;
-}
-#start-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: red;
-    color: white;
-    border: 2px black solid;
-    margin-top: 60px;
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px black;
-}
 
-#start-btn:hover{
-        color: #111;
-        background: #39ff14;
-        box-shadow: 0 0 50px #39ff14;
-}
+
