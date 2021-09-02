@@ -10,7 +10,6 @@ const higherBtn = document.querySelector(".higher--btn");
 const lowerBtn = document.querySelector(".lower--btn");
 let score = document.querySelector(".score--number");
 
-
 const maxDeckPosition = 52;
 let deckPosition = 1;
 

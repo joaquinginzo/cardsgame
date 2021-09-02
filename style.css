@@ -75,7 +75,7 @@
 .game .board .board--center .btn--panel {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 220px;
 }
 .game .board .board--center .btn--panel .btn--panel-btn {
   height: 80px;
